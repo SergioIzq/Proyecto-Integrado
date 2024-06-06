@@ -1,0 +1,109 @@
+<div class="card">
+    <div class="p-grid p-justify-center p-align-center">
+        <div>
+            <ng-container *ngIf="(error$ | async); else newOrDetalleEnfermedad">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Ha habido un error en la carga de datos</strong>
+                </div>
+            </ng-container>
+
+            <ng-template #newOrDetalleEnfermedad>
+                <ng-container *ngIf="isNewEnfermedad; else detalleEnfermedad">
+                    <h2>Nueva Enfermedad</h2>
+                    <form [formGroup]="newEnfermedadForm" (ngSubmit)="onSubmit()">
+                        <div class="form-field" formGroupName="Enfermedad">
+                            <label for="Nombre" class="form-label">Nombre de la enfermedad</label>
+                            <input formControlName="Nombre" id="Nombre" type="text"
+                                class="form-input" pInputText>
+                        </div>
+                        <div class="form-field" formGroupName="FamiliaEnfermedad">
+                            <label for="NombreFamilia" class="form-label">Familia de la Enfermedad asociada</label>
+                            <input formControlName="NombreFamilia" id="NombreFamilia" type="text" class="form-input"
+                                pInputText>
+                        </div>
+                  
+
+                        <div class="form-field" formArrayName="Sintomas" *ngIf="sintomas">
+                            <label for="sintoma">Síntomas</label>
+                            <div *ngFor="let sintoma of getFormArrayControls(newEnfermedadForm, 'Sintomas'); let i = index" class="checkbox-container">
+                                <input type="checkbox" [formControlName]="i" [value]="sintomas[i]?.Id" (change)="onSintomaChange($event)">
+                                <label>{{ sintomas[i]?.Nombre }}</label>
+                            </div>
+                        </div>
+
+                        <button pButton class="btn btn-success mt-3" [disabled]="newEnfermedadForm.invalid"
+                            type="submit">Crear</button>
+                        <button type="button" pButton class="back-button" (click)="goBack()">
+                            <i class="pi pi-arrow-left"></i>
+                        </button>
+                    </form>
+                </ng-container>
+
+                <ng-template #detalleEnfermedad>
+                    <h2>Detalle de la Enfermedad</h2>
+                    <form [formGroup]="detailEnfermedadForm" (ngSubmit)="onSubmit()">
+                        <input type="hidden" formControlName="Id">
+                        <div formGroupName="Paciente" class="form-field">
+                            <label for="CorreoPacienteDetalle" class="form-label">Correo del Paciente</label>
+                            <input formControlName="CorreoElectronico" id="CorreoPacienteDetalle" type="text"
+                                class="form-input" pInputText>
+                        </div>
+                        <div formGroupName="Medico" class="form-field">
+                            <label for="CorreoMedicoDetalle" class="form-label">Correo del Médico</label>
+                            <input formControlName="CorreoElectronico" id="CorreoMedicoDetalle" type="text"
+                                class="form-input" pInputText>
+                        </div>
+                        <div class="form-field">
+                            <label for="FechaVisitaDetalle" class="form-label">Fecha de Visita</label>
+                            <input formControlName="FechaVisita" id="FechaVisitaDetalle" type="datetime-local"
+                                class="form-input" [min]="minFechaActual()" pInputText>
+                        </div>
+                        <div class="form-field">
+                            <label for="MotivoDetalle" class="form-label">Motivo</label>
+                            <input formControlName="Motivo" id="MotivoDetalle" type="text" class="form-input"
+                                pInputText>
+                        </div>
+                        <div class="form-field" formGroupName="Enfermedad">
+                            <label for="Enfermedad" class="form-label">Enfermedad</label>
+                            <select class="form-select" id="Enfermedad" formControlName="Nombre">
+                                <option *ngFor="let enfermedad of enfermedades" [value]="enfermedad.Nombre"
+                                    [selected]="enfermedad.Nombre === selectedEnfermedad">
+                                    {{ enfermedad.Nombre }}
+                                </option>
+                            </select>
+                        </div>
+
+                        <button pButton class="btn btn-success mt-3"
+                            [disabled]="detailEnfermedadForm.invalid || !detailEnfermedadForm.dirty" type="submit">Guardar
+                            cambios</button>
+                        <button type="button" pButton class="back-buttonEdit" (click)="goBack()">
+                            <i class="pi pi-arrow-left"></i>
+                        </button>
+                    </form>
+                </ng-template>
+            </ng-template>
+        </div>
+    </div>
+    <!-- Modal de error crear -->
+    <p-dialog header="Error al crear la nueva enfermedad" [(visible)]="showErrorCrearModal">
+        <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de success crear -->
+    <p-dialog header="Enfermedad creada" [(visible)]="crearSuccessModal">
+        <p>Se ha creado la enfermedad correctamente <i class="pi pi-check-circle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de error editar -->
+    <p-dialog header="Error al editar enfermedad" [(visible)]="showEditarErrorModal">
+        <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de success editar -->
+    <p-dialog header="Enfermedad editada" [(visible)]="showEditarSuccessModal">
+        <p>Se ha editado la enfermedad correctamente <i class="pi pi-check-circle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+    </p-dialog>

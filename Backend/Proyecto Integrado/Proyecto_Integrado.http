@@ -1,0 +1,6 @@
+@Proyecto_Integrado_HostAddress = http://localhost:7115
+
+GET {{Proyecto_Integrado_HostAddress}}/
+Accept: application/json
+
+###

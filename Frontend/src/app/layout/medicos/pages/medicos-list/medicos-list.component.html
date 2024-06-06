@@ -1,0 +1,116 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <h2 class="page-title">Medicos</h2>
+    </div>
+    <div class="p-col-12 p-sm-6">
+        <!-- En pantallas pequeñas (≥ 576px), ocupa 6 columnas; en otras, ocupa 12 columnas -->
+        <div class="card">
+            <p-table #dt [value]="medicos" dataKey="Id" [rows]="10" [paginator]="true" [lazy]="true" [loading]="loading"
+                [totalRecords]="totalRecords" (onLazyLoad)="loadMedicosLazy($event)" 
+                [globalFilterFields]="['CorreoElectronico', 'Nombre', 'Apellidos', 'HorarioLaboral', 'Especialidad']"
+                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} medicos"
+                [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '75rem' }">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between datatable-header">
+                        <p-button pRipple severity="success" label="Nuevo" icon="pi pi-plus" class="mr-2 nuevo-button"
+                            [routerLink]="['/medicos/medico-detail', 0]"></p-button>
+                        <p-button label="Limpiar" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)"
+                            class="search-input"></p-button>
+                        <input pInputText type="text" [(ngModel)]="searchValue"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar palabra clave" />
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="CorreoElectronico" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Correo medico
+                                <p-sortIcon field="CorreoElectronico" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Nombre" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Nombre
+                                <p-sortIcon field="Nombre" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Apellidos" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Apellidos
+                                <p-sortIcon field="Apellidos" />                               
+                            </div>
+                        </th>
+                        <th pSortableColumn="HorarioLaboral" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                HorarioLaboral
+                                <p-sortIcon field="HorarioLaboral" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Especialidad" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Especialidad
+                                <p-sortIcon field="Especialidad" />                                
+                            </div>
+                        </th>
+                        <th style="width: 1rem"></th>
+                        <th style="width: 1rem"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-medico>
+                    <tr>
+                        <td>{{ medico.CorreoElectronico }}</td>
+                        <td>{{ medico.Nombre }}</td>
+                        <td>{{ medico.Apellidos }}</td>
+                        <td>{{ medico.HorarioLaboral }}</td>
+                        <td>{{ medico.Especialidad }}</td>
+
+                        <td>
+                            <p-button pRipple icon="pi pi-pencil" class="mr-2 rounded-button" [rounded]="true"
+                                [outlined]="true" severity="success"
+                                [routerLink]="['/medicos/medico-detail', medico.Id]" />
+                        </td>
+                        <td>
+                            <p-button pRipple icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+                                (click)="showDeleteConfirmationDialog(medico.Id)" />
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">No se encontraron medicos con esos filtros</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="p-col-12 p-sm-6">
+            <!-- En pantallas pequeñas (≥ 576px), ocupa 6 columnas; en otras, ocupa 12 columnas -->
+
+            <p-dialog header="Confirmación de Eliminación" [modal]="true" [(visible)]="showConfirmationDialog"
+                [style]="{ width: '25rem' }" [style.max-width.px]="getDialogWidth()">
+                <div style="margin-bottom: 1rem;">
+                    <!-- Agrega margen en la parte inferior para separar el texto de los botones -->
+                    <span class="p-text-secondary block">¿Estás seguro de que quieres borrar este medico?</span>
+                </div>
+                <div class="flex justify-content-end gap-2">
+                    <p-button label="Cancelar" [raised]="true" severity="secondary"
+                        (click)="showConfirmationDialog = false" class="" />
+                    <p-button label="Eliminar" [raised]="true" severity="danger" (click)="onDeleteMedico()"
+                        class="pa-button" />
+                </div>
+            </p-dialog>
+            <!-- Modal de error crear -->
+            <p-dialog header="Error al eliminar el médico" [(visible)]="showErrorModal">
+                <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+                <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+            </p-dialog>
+
+            <!-- Modal de success crear -->
+            <p-dialog header="Médico eliminado correctamente" [(visible)]="showSuccessModal">
+                <p>Se ha eliminado el médico correctamente <i class="pi pi-check-circle"></i></p>
+                <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+            </p-dialog>
+        </div>
+    </div>
+</div>

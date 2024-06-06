@@ -1,0 +1,139 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <h2 class="page-title">Visitas</h2>
+    </div>
+    <div class="p-col-12 p-sm-6">
+        <div class="card">
+
+            <p-table #dt [value]="visitas" dataKey="Id" [rows]="10" [paginator]="true" [lazy]="true" [loading]="cargando"
+                loadingIcon="pi pi-spin pi-spinner" [totalRecords]=" totalRecords"
+                (onLazyLoad)="loadVisitasLazy($event)"
+                [globalFilterFields]="['CorreoPaciente', 'NombrePaciente', 'ApellidosPaciente', 'EdadPaciente', 'FechaVisita', 'NombreEnfermedad', 'NombreMedicamento', 'CorreoMedico', 'NombreMedico']"
+                currentPageReportTemplate="Mostrando {first} a {last} de {{totalRecords}} visitas"
+                [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '75rem' }">
+
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between datatable-header">
+                        <p-button pRipple severity="success" label="Nuevo" icon="pi pi-plus" class="mr-2 nuevo-button"
+                            [routerLink]="['/visitas/visita-detail', 0]"></p-button>
+                        <p-button label="Limpiar" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)"
+                            class="search-input"></p-button>
+                        <input pInputText type="text" [(ngModel)]="searchValue"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar palabra clave" />
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="CorreoPaciente" style="min-width:14rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Correo Paciente
+                                <p-sortIcon field="CorreoPaciente" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="NombrePaciente" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Nombre
+                                <p-sortIcon field="NombrePaciente" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="ApellidosPaciente" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Apellidos
+                                <p-sortIcon field="ApellidosPaciente" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="EdadPaciente" style="min-width:10rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Edad
+                                <p-sortIcon field="EdadPaciente" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="FechaVisita" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Fecha de Visita
+                                <p-sortIcon field="FechaVisita" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="NombreEnfermedad" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Enfermedad
+                                <p-sortIcon field="NombreEnfermedad" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="NombreMedicamento" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Medicamento
+                                <p-sortIcon field="NombreMedicamento" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="CorreoMedico" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Correo Médico
+                                <p-sortIcon field="CorreoMedico" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="NombreMedico" style="min-width:10rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Médico
+                                <p-sortIcon field="NombreMedico" />
+                            </div>
+                        </th>
+                        <th style="width: 1rem"></th>
+                        <th style="width: 1rem"></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-visita>
+                    <tr>
+                        <td>{{ visita.CorreoPaciente }}</td>
+                        <td>{{ visita.NombrePaciente }}</td>
+                        <td>{{ visita.ApellidosPaciente }}</td>
+                        <td>{{ visita.EdadPaciente }}</td>
+                        <td>{{ visita.FechaVisita | date: 'dd/MM/yyyy HH:mm' }}</td>
+                        <td>{{ visita.NombreEnfermedad | uppercase }}</td>
+                        <td>{{ visita.NombreMedicamento | uppercase }}</td>
+                        <td>{{ visita.CorreoMedico }}</td>
+                        <td>{{ visita.NombreMedico }}</td>
+                        <td>
+                            <p-button pRipple icon="pi pi-pencil" class="mr-2 rounded-button" [rounded]="true"
+                                [outlined]="true" severity="success"
+                                [routerLink]="['/visitas/visita-detail', visita.Id]" />
+                        </td>
+                        <td>
+                            <p-button pRipple icon="pi pi-trash" severity="danger" [rounded]="true" [outlined]="true"
+                                (click)="showDeleteConfirmationDialog(visita.Id)" />
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">No se encontraron visitas con esos filtros</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Confirmación de Eliminación" [modal]="true" [(visible)]="showConfirmationDialog"
+    [style]="{ width: '25rem' }" [style.max-width.px]="getDialogWidth()">
+    <div style="margin-bottom: 1rem;">
+        <span class="p-text-secondary block">¿Estás seguro de que quieres borrar estas pacientes?</span>
+    </div>
+    <div class="flex justify-content-end gap-2">
+        <p-button class="space" label="Cancelar" [raised]="true" severity="secondary"
+            (click)="showConfirmationDialog = false" />
+        <p-button label="Eliminar" [raised]="true" severity="danger" (click)="onDeleteVisita()" />
+    </div>
+</p-dialog>
+
+<p-dialog header="Error al eliminar la visita" [(visible)]="showErrorModal">
+    <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+    <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+</p-dialog>
+
+<p-dialog header="Visita eliminada correctamente" [(visible)]="showSuccessModal">
+    <p>Se ha eliminado la visita correctamente <i class="pi pi-check-circle"></i></p>
+    <button pButton type="button" label="Cerrar" (click)="closeModal()"></button>
+</p-dialog>

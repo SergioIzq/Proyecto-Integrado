@@ -1,0 +1,73 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entidades\BBDD\Enfermedad.hbm.xml" />
+    <None Remove="Entidades\BBDD\FamiliaEnfermedad.hbm.xml" />
+    <None Remove="Entidades\BBDD\FamiliaMedicamento.hbm.xml" />
+    <None Remove="Entidades\BBDD\Medicamento.hbm.xml" />
+    <None Remove="Entidades\BBDD\Medico.hbm.xml" />
+    <None Remove="Entidades\BBDD\Paciente.hbm.xml" />
+    <None Remove="Entidades\BBDD\Sintoma.hbm.xml" />
+    <None Remove="Entidades\BBDD\SintomaEnfermedad.hbm.xml" />
+    <None Remove="Entidades\BBDD\Visita.hbm.xml" />
+    <None Remove="Entidades\BBDD\VisitaSintomaEnfermedad.hbm.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.4" />
+    <PackageReference Include="Microsoft.ML" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML.DataView" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML.FastTree" Version="3.0.1" />
+    <PackageReference Include="Microsoft.ML.Recommender" Version="0.21.1" />
+    <PackageReference Include="NHibernate" Version="5.5.1" />
+    <PackageReference Include="NHibernate.AspNet.Identity" Version="5.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Entidades\BBDD\Enfermedad.hbm.xml">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\FamiliaEnfermedad.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\FamiliaMedicamento.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\Medicamento.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\Medico.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\Paciente.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\Sintoma.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\SintomaEnfermedad.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\VisitaSintomaEnfermedad.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Entidades\BBDD\Visita.hbm.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="NHibernate\hibernate.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

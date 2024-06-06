@@ -1,0 +1,133 @@
+.card {
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 70vh;
+    max-height: 80vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative;
+}
+
+.back-button {
+    position: absolute;
+    left: 26.7%;
+    transform: translateX(-50%);    
+}
+
+.newForm{
+    margin-bottom: 20px;
+}
+
+.back-buttonEdit {
+    position: absolute;
+    left: 26.7%;
+    transform: translateX(-50%);
+}
+
+.form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-field .form-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+    width: 50%;
+    text-align: left;
+}
+
+.form-field .form-input {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-field p-inputMask {
+    width: 50%; /* Cambia el ancho al 100% para que se ajuste al contenedor */
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    box-sizing: border-box; /* Ajusta el tamaño total para incluir el padding y el borde */
+    overflow: hidden; /* Oculta el desbordamiento de texto */
+    text-overflow: ellipsis; /* Agrega puntos suspensivos para indicar desbordamiento */
+}
+
+i {
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .back-button {
+        bottom: 4%;
+        left: 22%;
+    }
+
+    .form-field {
+        width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    .form-field .form-label {
+        width: 80%;
+    }
+
+    .form-field .form-input {
+        width: 80%;
+    }
+
+    .form-field p-inputMask {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .back-button {
+        bottom: .5%;
+    }
+
+    .back-buttonEdit {
+        left: 18px;
+        transform: none;
+    }
+
+    .form-field {
+        width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    .form-field .form-label {
+        width: 80%;
+    }
+
+    .form-field .form-input {
+        width: 80%;
+    }
+
+    .form-field p-inputMask {
+        width: 80%;
+    }
+
+    .card {
+        max-height: 100vh;
+    }
+
+    .newForm {
+        margin-bottom: 20px;
+    }
+    
+}
+

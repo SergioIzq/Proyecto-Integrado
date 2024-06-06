@@ -1,0 +1,127 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <h2 class="page-title">Historial de visitas</h2>
+    </div>
+    <div class="p-col-12 p-sm-6">
+        <!-- En pantallas pequeñas (≥ 576px), ocupa 6 columnas; en otras, ocupa 12 columnas -->
+        <div class="card">
+            <p-table #dt [value]="visitasTransformadas" dataKey="Id" [rows]="10" [paginator]="true"
+                [globalFilterFields]="['CorreoPaciente', 'Nombre', 'Apellidos', 'Edad', 'FechaVisita', 'Enfermedad', 'Medicamento', 'CorreoMedico', 'Medico']"
+                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} visitas"
+                [showCurrentPageReport]="true" [tableStyle]="{ 'min-width': '75rem' }">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between datatable-header">
+                        <p-button label="Limpiar" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)"
+                            class="search-input"></p-button>
+                        <input pInputText type="text" [(ngModel)]="searchValue"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar palabra clave" />
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="CorreoPaciente" style="min-width:14rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Correo Paciente
+                                <p-sortIcon field="CorreoECorreoPacientelectronico" />
+                                <p-columnFilter type="text" field="CorreoPaciente" display="menu" class="ml-auto" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Nombre" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Nombre
+                                <p-sortIcon field="Nombre" />
+                                <p-columnFilter type="text" field="Nombre" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Apellidos" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Apellidos
+                                <p-sortIcon field="Apellidos" />
+                                <p-columnFilter type="text" field="Apellidos" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Edad" style="min-width:10rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Edad
+                                <p-sortIcon field="Edad" />
+                                <p-columnFilter type="text" field="Edad" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="FechaVisita" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Fecha de Visita
+                                <p-sortIcon field="FechaVisita" />
+                                <p-columnFilter type="text" field="FechaVisita" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Enfermedad" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Enfermedad
+                                <p-sortIcon field="Enfermedad" />
+                                <p-columnFilter type="text" field="Enfermedad" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Medicamento" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Medicamento
+                                <p-sortIcon field="Medicamento" />
+                                <p-columnFilter type="text" field="Medicamento" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="CorreoMedico" style="min-width:15rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Correo Médico
+                                <p-sortIcon field="CorreoMedico" />
+                                <p-columnFilter type="text" field="CorreoMedico" display="menu" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="Medico" style="min-width:10rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Médico
+                                <p-sortIcon field="Medico" />
+                                <p-columnFilter type="text" field="Medico" display="menu" />
+                            </div>
+                        </th>                                                
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-visita>
+                    <tr>
+                        <td>{{ visita.CorreoPaciente }}</td>
+                        <td>{{ visita.Nombre }}</td>
+                        <td>{{ visita.Apellidos }}</td>
+                        <td>{{ visita.Edad }}</td>
+                        <td>{{ visita.FechaVisita | date: 'dd/MM/yyyy HH:mm' }}</td>
+                        <td>{{ visita.Enfermedad | uppercase }}</td>
+                        <td>{{ visita.Medicamento | uppercase }}</td>
+                        <td>{{ visita.CorreoMedico }}</td>
+                        <td>{{ visita.Medico }}</td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">No se encontraron visitas con esos filtros</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        <div class="p-col-12 p-sm-6">
+            <!-- En pantallas pequeñas (≥ 576px), ocupa 6 columnas; en otras, ocupa 12 columnas -->
+
+            <p-dialog header="Confirmación de Eliminación" [modal]="true" [(visible)]="showConfirmationDialog"
+                [style]="{ width: '25rem' }" [style.max-width.px]="getDialogWidth()">
+                <div style="margin-bottom: 1rem;">
+                    <!-- Agrega margen en la parte inferior para separar el texto de los botones -->
+                    <span class="p-text-secondary block">¿Estás seguro de que quieres borrar estas visitas?</span>
+                </div>
+                <div class="flex justify-content-end gap-2">
+                    <p-button label="Cancelar" [raised]="true" severity="secondary"
+                        (click)="showConfirmationDialog = false" class="" />
+                    <p-button label="Eliminar" [raised]="true" severity="danger" (click)="onDeleteConfirmed()"
+                        class="pa-button" />
+                </div>
+            </p-dialog>
+        </div>
+    </div>
+</div>

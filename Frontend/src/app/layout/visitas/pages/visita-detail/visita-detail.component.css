@@ -1,0 +1,366 @@
+.card {
+    margin-top: 30px;
+    border: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    min-height: 70vh;
+    max-height: 80vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    position: relative;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.back-button,
+.back-buttonEdit {
+    position: absolute;
+    left: 27.7%;
+    transform: translateX(-50%);
+}
+
+.newForm {
+    margin-bottom: 20px;
+}
+
+.form-field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.form-field .form-label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #495057;
+    width: 50%;
+    text-align: left;
+}
+
+.form-field .form-input,
+.form-field .form-select,
+.form-field p-inputMask {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-field .form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="#495057" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>') no-repeat right 10px center;
+    background-size: 8px 10px;
+    background-color: #fff;
+    color: #495057;
+}
+
+.form-field .form-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-field .form-select option {
+    padding: 10px;
+    background-color: #fff;
+    color: #495057;
+    font-size: 16px;
+}
+
+.form-field .form-select option:hover {
+    background-color: #f2f2f2;
+}
+
+.form-field .form-select option:selected {
+    background-color: #cce5ff;
+    font-weight: bold;
+}
+
+i {
+    margin-left: 4px;
+}
+
+@media screen and (max-width: 768px) {
+    .back-button,
+    .back-buttonEdit {
+        bottom: 4%;
+        left: 22%;
+    }
+
+    .form-field {
+        width: 80%;
+        margin: 0 auto 20px;
+    }
+
+    .form-field .form-label,
+    .form-field .form-input,
+    .form-field p-inputMask,
+    .form-field .form-select {
+        width: 80%;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .checkbox-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 80%;
+    }
+
+    .checkbox-list {
+        width: 100%;
+    }
+
+    .form-field-container,
+    .cantidad-field-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .back-button,
+    .back-buttonEdit {
+        bottom: 0.5%;
+    }
+
+    .back-buttonEdit {
+        left: 18px;
+        transform: none;
+    }
+
+    .form-field {
+        width: 100%;
+        margin: 0 auto 20px;
+    }
+
+    .form-field .form-label,
+    .form-field .form-input,
+    .form-field p-inputMask,
+    .form-field .form-select {
+        width: 100%;
+    }
+
+    .card {
+        max-height: 100vh;
+        padding: 10px;
+    }
+
+    .newForm {
+        margin-bottom: 20px;
+    }
+
+    .checkbox-list-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 100%;
+    }
+
+    .checkbox-list {
+        width: 100%;
+        max-height: 150px;
+    }
+
+    .form-field-container,
+    .cantidad-field-container {
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        transform: none;
+        margin: 20px auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .checkbox-list-container,
+    .cantidad-field-container {
+        width: 100%;
+        margin: 20px auto;
+    }
+
+
+}
+
+.checkbox-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    position: absolute;
+    top: 43%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: 45px;
+}
+
+.checkbox-list {
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    width: 300px;
+    max-height: 200px;
+    overflow-y: auto;    
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.checkbox-label {
+    margin-left: 8px;
+    font-size: 16px;
+    color: #495057;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.checkbox-input {
+    margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-input:checked + .checkbox-label::before {
+    content: "\2713";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+}
+
+.checkbox-list label {
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.checkbox-list label:hover {
+    color: #007bff;
+}
+
+.form-field-container {
+    position: absolute;
+    top: 14%;
+    right: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cantidad-field-container {
+    position: absolute;
+    top: 27%;
+    left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cantidad-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-cantidad {
+    margin-bottom: 20px;
+}
+
+.prediction-id {
+    margin-right: 30px;
+}
+
+.titulo-centrado {
+    text-align: center;
+    width: 100%;
+}
+
+/* Ajustes de estilo para dispositivos móviles */
+@media screen and (max-width: 600px) {
+    .checkbox-list-container {
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        margin-bottom: 20px; /* Ajuste para el espacio entre los contenedores */
+    }
+
+    .checkbox-list {
+        width: 100%;
+    }
+
+    p-scrollPanel {
+        position: static;
+        top: auto;
+        right: auto;
+    }
+}
+
+p-scrollPanel {        
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 36%; 
+    right: 50px;
+    text-align: start;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;    
+    background-color: #f8f9fa;
+}
+
+.titulo {
+    position: absolute;
+    top: 28%; 
+    right: 160px;
+}
+
+.calendar-24h{
+    display: none;
+}

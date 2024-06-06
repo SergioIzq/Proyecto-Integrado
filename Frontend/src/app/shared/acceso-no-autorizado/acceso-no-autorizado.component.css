@@ -1,0 +1,20 @@
+.p-card {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 5pc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.p-card-danger .p-card-header {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.p-card-danger .p-card-body {
+    color: #721c24;
+}

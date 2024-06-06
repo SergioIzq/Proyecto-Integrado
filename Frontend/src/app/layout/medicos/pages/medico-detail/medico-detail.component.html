@@ -1,0 +1,119 @@
+<div class="card">
+    <div class="p-grid p-justify-center p-align-center">
+        <div>
+            <ng-container *ngIf="(error$ | async); else newOrDetalleMedico" class="mt-4">
+                <div class="alert alert-danger" role="alert">
+                    <strong>Ha habido un error en la carga de datos</strong>
+                </div>
+            </ng-container>
+
+            <ng-template #newOrDetalleMedico>
+                <ng-container *ngIf="isNewMedico">
+                    <h2>Nuevo Médico</h2>
+                </ng-container>
+                <ng-container *ngIf="!isNewMedico">
+                    <h2>Detalle de {{ detailMedicoForm.get('CorreoElectronico').value }}</h2>
+                </ng-container>
+
+                <form *ngIf="isNewMedico" [formGroup]="newMedicoForm" (ngSubmit)="onSubmit()" class="newForm">
+                    <div class="form-field">
+                        <label for="CorreoElectronico" class="form-label">Correo del Medico</label>
+                        <input formControlName="CorreoElectronico" id="CorreoElectronico" type="email"
+                            class="form-input" pInputText>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="Nombre" class="form-label">Nombre del Medico</label>
+                        <input formControlName="Nombre" id="Nombre" type="text" class="form-input" pInputText>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="Contrasena" class="form-label">Contraseña</label>
+                        <input formControlName="Contrasena" id="Contrasena" type="password" class="form-input"
+                            pInputText>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="Apellidos" class="form-label">Apellidos del Medico</label>
+                        <input formControlName="Apellidos" id="Apellidos" type="text" class="form-input" pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="Especialidad" class="form-label">Especialidad</label>
+                        <input formControlName="Especialidad" id="Especialidad" type="text" class="form-input"
+                            pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="horarioLaboral" class="form-label">Horario laboral:</label>
+                        <p-inputMask class="form-mask" mask="99:99-99:99" formControlName="HorarioLaboral"
+                            placeholder="HH:MM-HH:MM"></p-inputMask>
+                    </div>
+                    <button pButton class="btn btn-success mt-3" [disabled]="newMedicoForm.invalid"
+                        type="submit">Crear</button>
+                    <button type="button" pButton class="back-button" (click)="goBack()">
+                        <i class="pi pi-arrow-left"></i>
+                    </button>
+                </form>
+
+
+                <form *ngIf="!isNewMedico" [formGroup]="detailMedicoForm" (ngSubmit)="onSubmit()">
+                    <div class="form-field">
+                        <label for="CorreoElectronico" class="form-label">Correo Electronico</label>
+                        <input formControlName="CorreoElectronico" id="CorreoElectronico" type="email"
+                            class="form-input" pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="Nombre" class="form-label">Nombre</label>
+                        <input formControlName="Nombre" id="Nombre" type="text" class="form-input" pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="Apellidos" class="form-label">Apellidos</label>
+                        <input formControlName="Apellidos" id="Apellidos" type="text" class="form-input" pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="Especialidad" class="form-label">Especialidad</label>
+                        <input formControlName="Especialidad" id="Especialidad" type="text" class="form-input"
+                            pInputText>
+                    </div>
+                    <div class="form-field">
+                        <label for="HorarioLaboral" class="form-label">Horario Laboral</label>
+                        <p-inputMask class="form-mask" mask="99:99-99:99" formControlName="HorarioLaboral"
+                            placeholder="HH:MM-HH:MM"></p-inputMask>
+                    </div>
+                    <button pButton class="btn btn-success mt-3"
+                        [disabled]="detailMedicoForm.invalid || !detailMedicoForm.dirty" type="submit">Guardar
+                        cambios</button>
+                    <!-- Botón para regresar -->
+                    <button type="button" pButton class="back-buttonEdit" (click)="goBack()">
+                        <i class="pi pi-arrow-left"></i>
+                    </button>
+                </form>
+
+
+            </ng-template>
+        </div>
+    </div>
+
+    <!-- Modal de error crear -->
+    <p-dialog header="Error al crear el nuevo Medico" [(visible)]="showErrorCrearModal">
+        <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeErrorModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de success crear -->
+    <p-dialog header="Medico registrado" [(visible)]="crearSuccessModal">
+        <p>Se ha registrado al medico correctamente <i class="pi pi-check-circle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeSuccessModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de error editar -->
+    <p-dialog header="Error al editar el Medico" [(visible)]="showEditarErrorModal">
+        <p>{{ errorMessage }} <i class="pi pi-exclamation-triangle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeErrorModal()"></button>
+    </p-dialog>
+
+    <!-- Modal de success editar -->
+    <p-dialog header="Medico editado" [(visible)]="showEditarSuccessModal">
+        <p>Se ha editado al medico correctamente <i class="pi pi-check-circle"></i></p>
+        <button pButton type="button" label="Cerrar" (click)="closeSuccessModal()"></button>
+    </p-dialog>
+</div>

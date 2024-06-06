@@ -1,0 +1,68 @@
+<div class="p-grid">
+    <div class="p-col-12">
+        <h2 class="page-title">Medicamentos</h2>
+    </div>
+    <div class="p-col-12 p-sm-6">
+        <!-- En pantallas pequeñas (≥ 576px), ocupa 6 columnas; en otras, ocupa 12 columnas -->
+        <div class="card">
+            <p-table #dt [value]="medicamentos$ | async" dataKey="Id" [rows]="10" [paginator]="true"
+                [globalFilterFields]="['Nombre', 'Familia', 'Precio', 'Descripcion']"
+                currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} medicamentos"
+                [showCurrentPageReport]="false" [tableStyle]="{ 'min-width': '75rem' }">
+                <ng-template pTemplate="caption">
+                    <div class="flex justify-content-between datatable-header">
+                        <!-- <p-button pRipple severity="success" label="Nuevo" icon="pi pi-plus" class="mr-2 nuevo-button"
+                            [routerLink]="['/medicamentos/medicamento-detail', 0]"></p-button> -->
+                        <p-button label="Limpiar" [outlined]="true" icon="pi pi-filter-slash" (click)="clear(dt)"
+                            class="search-input"></p-button>
+                        <input pInputText type="text" [(ngModel)]="searchValue"
+                            (input)="applyFilterGlobal($event, 'contains')" placeholder="Buscar palabra clave" />
+                    </div>
+                </ng-template>
+
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="Nombre" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Nombre
+                                <p-sortIcon field="Nombre" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Familia" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Familia
+                                <p-sortIcon field="Familia" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Precio" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Precio
+                                <p-sortIcon field="Precio" />                                
+                            </div>
+                        </th>
+                        <th pSortableColumn="Descripcion" style="min-width:12rem">
+                            <div class="flex justify-content-between align-items-center">
+                                Descripcion
+                                <p-sortIcon field="Descripcion" />                                
+                            </div>
+                        </th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-medicamento>
+                    <tr>                        
+                        <td>{{ medicamento.Nombre }}</td>
+                        <td>{{ medicamento.Familia }}</td>                        
+                        <td>{{ medicamento.Precio }} €</td>
+                        <td>{{ medicamento.Descripcion }}</td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="12">No se encontraron medicamentos con esos filtros</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>        
+    </div>
+</div>

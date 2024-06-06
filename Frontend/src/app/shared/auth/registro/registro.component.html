@@ -1,0 +1,72 @@
+<div class="card">
+    <div class="p-grid p-justify-center p-align-center">
+        <div class="overlay-box">
+            <div class="form-container">
+                <h2>Registrarse</h2>
+                <form (ngSubmit)="register()" [formGroup]="registroForm">
+                    <div class="form-field">
+                        <label for="tipo" class="form-label">Tipo de usuario:</label>
+                        <p-selectButton [options]="stateOptions" formControlName="tipo" optionLabel="label"
+                            optionValue="value" name="tipo" pInputText variant="filled" class="form-control"
+                            (ngModelChange)="tipo = $event">
+                        </p-selectButton>
+                    </div>
+
+                    <!-- Resto de campos comunes -->
+                    <div class="form-field">
+                        <label for="nombre" class="form-label">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" pInputText variant="filled"
+                            class="form-input form-control" formControlName="nombre" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="apellidos" class="form-label">Apellidos:</label>
+                        <input type="text" id="apellidos" name="apellidos" pInputText variant="filled"
+                            class="form-input form-control" formControlName="apellidos" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="correo" class="form-label">Correo electrónico:</label>
+                        <input type="email" id="correo" name="correo" pInputText variant="filled"
+                            class="form-input form-control" formControlName="correo" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="contrasena" class="form-label">Contraseña:</label>
+                        <input type="password" id="contrasena" name="contrasena" pPassword required
+                            class="form-input form-control" formControlName="contrasena" required>
+                    </div>
+                    <!-- Sección para médicos -->
+                    <div *ngIf="tipo === 'medico'" class="form-field">
+                        <label for="especialidad" class="form-label">Especialidad:</label>
+                        <input type="text" id="especialidad" name="especialidad" pInputText variant="filled"
+                            class="form-control" formControlName="especialidad">
+                    </div>
+                    <div *ngIf="tipo === 'medico'" class="form-field">
+                        <label for="horarioLaboral" class="form-label">Horario laboral:</label>
+                        <p-inputMask mask="99:99-99:99" formControlName="horarioLaboral"
+                            placeholder="HH:MM-HH:MM"></p-inputMask>
+                    </div>
+                    <!-- Sección para pacientes -->
+                    <div *ngIf="tipo === 'paciente'" class="form-field">
+                        <label for="edad" class="form-label">Edad:</label>
+                        <input type="number" id="edad" name="edad" pInputText variant="filled"
+                            class="form-input form-control" formControlName="edad">
+                    </div>
+                    <div class="button-container">
+                        <p-button type="submit" class="btn btn-primary"
+                            [disabled]="registroForm.invalid">Registrarse</p-button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Modal de error -->
+    <p-dialog header="Error en el registro de usuario" [(visible)]="showErrorModal">
+        <p>Fallo en el registro, compruebe los datos</p>
+        <button pButton type="button" label="Cerrar" (click)="closeErrorModal()"></button>
+    </p-dialog>
+
+    <p-dialog header="Usuario registrado correctamente" [(visible)]="showModalSuccess">
+        <p>Se le redirigirá al login para iniciar sesión</p>
+        <button pButton type="button" label="Cerrar" (click)="closeSuccessModal()"></button>
+    </p-dialog>
+
+</div>

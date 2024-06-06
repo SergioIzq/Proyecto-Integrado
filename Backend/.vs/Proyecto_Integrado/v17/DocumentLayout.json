@@ -1,0 +1,88 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|c:\\users\\sizquierdo\\desktop\\proyecto-integrado\\backend\\proyecto integrado\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|solutionrelative:proyecto integrado\\startup.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|c:\\users\\sizquierdo\\desktop\\proyecto-integrado\\backend\\proyecto integrado\\controllers\\pacientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|solutionrelative:proyecto integrado\\controllers\\pacientecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|c:\\users\\sizquierdo\\desktop\\proyecto-integrado\\backend\\proyecto integrado\\controllers\\visitacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|solutionrelative:proyecto integrado\\controllers\\visitacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|c:\\users\\sizquierdo\\desktop\\proyecto-integrado\\backend\\proyecto integrado\\entidades\\bbdd\\medico.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{C36B2CD1-594C-4722-9303-EAD660802522}|Proyecto Integrado\\Proyecto_Integrado.csproj|solutionrelative:proyecto integrado\\entidades\\bbdd\\medico.hbm.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 209,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Startup.cs",
+              "DocumentMoniker": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Startup.cs",
+              "RelativeDocumentMoniker": "Proyecto Integrado\\Startup.cs",
+              "ToolTip": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Startup.cs",
+              "RelativeToolTip": "Proyecto Integrado\\Startup.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBgAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T11:48:26.92Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PacienteController.cs",
+              "DocumentMoniker": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Controllers\\PacienteController.cs",
+              "RelativeDocumentMoniker": "Proyecto Integrado\\Controllers\\PacienteController.cs",
+              "ToolTip": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Controllers\\PacienteController.cs",
+              "RelativeToolTip": "Proyecto Integrado\\Controllers\\PacienteController.cs",
+              "ViewState": "AQIAAL0AAAAAAAAAAAAcwP8AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-06T10:27:09.067Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Medico.hbm.xml",
+              "DocumentMoniker": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Entidades\\BBDD\\Medico.hbm.xml",
+              "RelativeDocumentMoniker": "Proyecto Integrado\\Entidades\\BBDD\\Medico.hbm.xml",
+              "ToolTip": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Entidades\\BBDD\\Medico.hbm.xml",
+              "RelativeToolTip": "Proyecto Integrado\\Entidades\\BBDD\\Medico.hbm.xml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB4AAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-06-04T10:30:37.841Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VisitaController.cs",
+              "DocumentMoniker": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Controllers\\VisitaController.cs",
+              "RelativeDocumentMoniker": "Proyecto Integrado\\Controllers\\VisitaController.cs",
+              "ToolTip": "C:\\Users\\sizquierdo\\Desktop\\Proyecto-Integrado\\Backend\\Proyecto Integrado\\Controllers\\VisitaController.cs",
+              "RelativeToolTip": "Proyecto Integrado\\Controllers\\VisitaController.cs",
+              "ViewState": "AQIAAMMBAAAAAAAAAAAswNIBAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-04T09:58:56.532Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
