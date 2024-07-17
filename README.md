@@ -3,19 +3,25 @@
 # Índice
 
 1. [Introducción](#introducción)
+
 2. [Tecnologías Utilizadas](#tecnologías-utilizadas)
    - [Angular](#angular)
    - [C# y NHibernate](#c-y-nhibernate)
    - [Librería de Machine Learning en C#](#librería-de-machine-learning-en-c)
+     
 3. [Arquitectura de la Aplicación](#arquitectura-de-la-aplicación)
+   
 4. [Descripción de Funcionalidades](#descripción-de-funcionalidades)
    - [Registro e Inicio de Sesión](#registro-e-inicio-de-sesión)
    - [Gestión de Perfiles](#gestión-de-perfiles)
    - [Gestión de Medicación](#gestión-de-medicación)
    - [Gestión de Citas](#gestión-de-citas)
+     
 5. [Configuración de la Base de Datos](#configuración-de-la-base-de-datos)
    - [Scripts de la Base de Datos](#scripts-de-la-base-de-datos)
+     
 6. [Conclusión](#conclusión)
+   
 7. [Flujo para Pacientes](#flujo-para-pacientes)
    - [Registro del Paciente](#registro-del-paciente)
    - [Inicio de Sesión del Paciente](#inicio-de-sesión-del-paciente)
@@ -23,6 +29,7 @@
    - [Consulta de Medicamentos](#consulta-de-medicamentos)
    - [Consulta de Enfermedades](#consulta-de-enfermedades)
    - [Consulta de Historial de Visitas](#consulta-de-historial-de-visitas)
+     
 8. [Flujo para Profesionales de la Salud](#flujo-para-profesionales-de-la-salud)
    - [Registro del Médico](#registro-del-médico)
    - [Inicio de Sesión del Médico](#inicio-de-sesión-del-médico)
