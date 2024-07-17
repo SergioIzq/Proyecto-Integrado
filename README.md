@@ -131,56 +131,56 @@ La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robust
 
 ### Flujo para Pacientes
 
-### Registro del Paciente
+   ### Registro del Paciente
 
   - **El paciente abre la aplicación y selecciona "Registrarse".**
   - **Completa un formulario con información básica (nombre, edad, sexo, correo electrónico, contraseña, etc.).**
   - **El paciente confirma su correo y puede proceder a iniciar sesión.**
   
-### Inicio de Sesión del Paciente
+   ### Inicio de Sesión del Paciente
 
   - **El paciente abre la aplicación y selecciona "Iniciar Sesión".**
   - **Introduce su correo electrónico y contraseña.**
   - **Accede al panel de control del paciente.**
     
-### Perfil del Paciente
+   ### Perfil del Paciente
   - **En el panel de control, el paciente selecciona "Perfil".**
   - **Puede visualizar y editar su información personal y médica.**
 
-### Consulta de Medicamentos
+   ### Consulta de Medicamentos
 
   - **El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.**
    
-### Consulta de Enfermedades
+   ### Consulta de Enfermedades
 
   - **El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.**
    
-### Consulta de Historial de Visitas
+   ### Consulta de Historial de Visitas
 
   - **En el panel de control, el paciente selecciona "Historial Visitas".**
   - **Puede ver el historial de citas.**
     
 ### Flujo para Profesionales de la Salud
 
-### Registro del Médico
+   ### Registro del Médico
 
   - **El profesional de la salud abre la aplicación y selecciona "Registrarse".**
     
   - **Completa un formulario con información profesional (nombre, especialidad, correo electrónico, contraseña, etc.).**
     
-### Inicio de Sesión del Médico
+   ### Inicio de Sesión del Médico
 
   - **El profesional de la salud abre la aplicación y selecciona "Iniciar Sesión".**
   - **Introduce su correo electrónico y contraseña.**
   - **Accede al panel de control del médico.**
     
-### Perfil del Médico
+   ### Perfil del Médico
 
   - **En el panel de control, el médico selecciona "Modificar Perfil".**
   - **Puede visualizar y editar su información profesional.**
   - **Actualiza horarios de consulta, correo, nombre, etc.**
     
-### Gestión de Citas
+   ### Gestión de Citas
 
   - **En el panel de control, el médico selecciona "Visitas".**
   - **Visualiza una lista de citas.**
@@ -189,10 +189,10 @@ La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robust
   - **Para cancelar, selecciona la cita y elimínala.**
   - **Visualiza el historial de citas con cada paciente.**
     
-### Consulta de Medicamentos
+   ### Consulta de Medicamentos
 
   - **El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.**
     
-### Consulta de Enfermedades
+   ### Consulta de Enfermedades
 
   - **El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.**
