@@ -129,8 +129,8 @@ He utilizado SQL Server Management Studio para la base de datos, de la cual he e
 ## Conclusión
 La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robusta, escalable y fácil de mantener para el desarrollo de aplicaciones de salud médica. Este stack tecnológico no solo garantiza una experiencia de usuario rica y fluida, sino que también proporciona capacidades avanzadas de análisis y predicción, fundamentales para mejorar la atención médica.
 
-### Flujo para Pacientes
----
+## Flujo para Pacientes
+
    **Registro del Paciente**
 
    - **El paciente abre la aplicación y selecciona "Registrarse".**
@@ -161,8 +161,8 @@ La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robust
    - **En el panel de control, el paciente selecciona "Historial Visitas".**
    - **Puede ver el historial de citas.**
 
-### Flujo para Profesionales de la Salud
----
+## Flujo para Profesionales de la Salud
+
    **Registro del Médico**
 
    - **El profesional de la salud abre la aplicación y selecciona "Registrarse".**
