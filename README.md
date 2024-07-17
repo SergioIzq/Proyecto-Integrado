@@ -1,6 +1,6 @@
 # Proyecto Integrado (Aplicación de Salud Médica)
 
-# Índice
+## Índice
 
 1. [Introducción](#introducción)
 
