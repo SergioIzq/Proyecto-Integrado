@@ -1,5 +1,5 @@
 # Proyecto Integrado (Aplicación de Salud Médica)
-
+---
 ## Índice
 
 1. [Introducción](#introducción)
@@ -38,7 +38,7 @@
    - [Consulta de Medicamentos](#consulta-de-medicamentos)
    - [Consulta de Enfermedades](#consulta-de-enfermedades)
      
----
+
 
 ## Introducción
 
