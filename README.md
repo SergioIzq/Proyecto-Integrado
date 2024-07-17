@@ -62,16 +62,16 @@ En la solución del backend, además del API REST ProyectoIntegrado, hay un Wind
 ## Descripción de Funcionalidades
 
 ### Registro e Inicio de Sesión
-- **Usuarios pueden registrarse y autenticarse en la aplicación.**
+- ** Los usuarios pueden registrarse y autenticarse en la aplicación.**
 
 ### Gestión de Perfiles
-- **Pacientes y médicos pueden crear y editar sus perfiles.**
+- **Los pacientes y médicos pueden crear y editar sus perfiles.**
 
 ### Gestión de Medicación
-- **Pacientes pueden ver y gestionar su medicación.**
+- **Los pacientes pueden ver y gestionar su medicación.**
 
 ### Gestión de Citas
-- **Médicos y pacientes pueden programar, ver, reprogramar y cancelar citas.**
+- **Los médicos y pacientes pueden programar, ver, reprogramar y cancelar citas.**
 
 ## Configuración de la Base de Datos
 
@@ -79,54 +79,80 @@ Para la configuración de la BBDD es muy importante el archivo `hibernate.cfg.xm
 
 ```xml
 <property name="connection.connection_string">Data Source=.\SQLEXPRESS;Initial Catalog=ProyectoIntegrado;Integrated Security=True</property>
-la más importante ya que tiene el catalog que es el nombre de la base de datos y el source que en este caso accede al servidor local de SQL Express. Para ello, recomiendo instalar SQL Express y SQL Server Management Studio y ejecutar los scripts en SQL Server Management Studio.
+```
 
-Scripts de la Base de Datos
+La más importante ya que tiene el catalog que es el nombre de la base de datos y el source que en este caso accede al servidor local de SQL Express. Para ello, recomiendo instalar SQL Express y SQL Server Management Studio y ejecutar los scripts en SQL Server Management Studio.
+
+### Scripts de la Base de Datos
 He utilizado SQL Server Management Studio para la base de datos, de la cual he extraído los scripts para crear la base de datos con todas sus tablas y relaciones. Estos scripts están adjuntos en la carpeta SCRIPTS SQL. Constan de 11 scripts con títulos descriptivos de lo que hace cada uno y deben ser ejecutados en orden de 1 a 11. Además, hay un script.sql que contiene todo el código de los 11 scripts almacenado en uno solo. Puedes decidir ejecutar los 11 uno por uno o ejecutar directamente el script.sql que contiene todo.
 
-Conclusión
+### Conclusión
 La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robusta, escalable y fácil de mantener para el desarrollo de aplicaciones de salud médica. Este stack tecnológico no solo garantiza una experiencia de usuario rica y fluida, sino que también proporciona capacidades avanzadas de análisis y predicción, fundamentales para mejorar la atención médica.
 
-Flujo para Pacientes
-Registro del Paciente
-El paciente abre la aplicación y selecciona "Registrarse".
-Completa un formulario con información básica (nombre, edad, sexo, correo electrónico, contraseña, etc.).
-Verificación de correo electrónico mediante un enlace enviado al correo.
-El paciente confirma su correo y puede proceder a iniciar sesión.
-Inicio de Sesión del Paciente
-El paciente abre la aplicación y selecciona "Iniciar Sesión".
-Introduce su correo electrónico y contraseña.
-Accede al panel de control del paciente.
-Perfil del Paciente
-En el panel de control, el paciente selecciona "Perfil".
-Puede visualizar y editar su información personal y médica.
-Consulta de Medicamentos
-El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.
-Consulta de Enfermedades
-El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.
-Consulta de Historial de Visitas
-En el panel de control, el paciente selecciona "Historial Visitas".
-Puede ver el historial de citas.
-Flujo para Profesionales de la Salud
-Registro del Médico
-El profesional de la salud abre la aplicación y selecciona "Registrarse".
-Completa un formulario con información profesional (nombre, especialidad, correo electrónico, contraseña, etc.).
-Inicio de Sesión del Médico
-El profesional de la salud abre la aplicación y selecciona "Iniciar Sesión".
-Introduce su correo electrónico y contraseña.
-Accede al panel de control del médico.
-Perfil del Médico
-En el panel de control, el médico selecciona "Modificar Perfil".
-Puede visualizar y editar su información profesional.
-Actualiza horarios de consulta, correo, nombre, etc.
-Gestión de Citas
-En el panel de control, el médico selecciona "Visitas".
-Visualiza una lista de citas.
-Puede confirmar, reprogramar o cancelar citas.
-Para reprogramar, selecciona la cita, elige una nueva hora y fecha.
-Para cancelar, selecciona la cita y elimínala.
-Visualiza el historial de citas con cada paciente.
-Consulta de Medicamentos
-El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.
-Consulta de Enfermedades
-El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.
+### Flujo para Pacientes
+
+### Registro del Paciente
+
+  - **El paciente abre la aplicación y selecciona "Registrarse".**
+  - **Completa un formulario con información básica (nombre, edad, sexo, correo electrónico, contraseña, etc.).**
+  - **El paciente confirma su correo y puede proceder a iniciar sesión.**
+  
+### Inicio de Sesión del Paciente
+
+  - **El paciente abre la aplicación y selecciona "Iniciar Sesión".**
+  - **Introduce su correo electrónico y contraseña.**
+  - **Accede al panel de control del paciente.**
+    
+### Perfil del Paciente
+  - **En el panel de control, el paciente selecciona "Perfil".**
+  - **Puede visualizar y editar su información personal y médica.**
+
+### Consulta de Medicamentos
+
+  - **El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.**
+   
+### Consulta de Enfermedades
+
+  - **El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.**
+   
+### Consulta de Historial de Visitas
+
+  - **En el panel de control, el paciente selecciona "Historial Visitas".**
+  - **Puede ver el historial de citas.**
+    
+### Flujo para Profesionales de la Salud
+
+### Registro del Médico
+
+  - **El profesional de la salud abre la aplicación y selecciona "Registrarse".**
+    
+  - **Completa un formulario con información profesional (nombre, especialidad, correo electrónico, contraseña, etc.).**
+    
+### Inicio de Sesión del Médico
+
+  - **El profesional de la salud abre la aplicación y selecciona "Iniciar Sesión".**
+  - **Introduce su correo electrónico y contraseña.**
+  - **Accede al panel de control del médico.**
+    
+### Perfil del Médico
+
+  - **En el panel de control, el médico selecciona "Modificar Perfil".**
+  - **Puede visualizar y editar su información profesional.**
+  - **Actualiza horarios de consulta, correo, nombre, etc.**
+    
+### Gestión de Citas
+
+  - **En el panel de control, el médico selecciona "Visitas".**
+  - **Visualiza una lista de citas.**
+  - **Puede confirmar, reprogramar o cancelar citas.**
+  - **Para reprogramar, selecciona la cita, elige una nueva hora y fecha.**
+  - **Para cancelar, selecciona la cita y elimínala.**
+  - **Visualiza el historial de citas con cada paciente.**
+    
+### Consulta de Medicamentos
+
+  - **El profesional selecciona medicamentos y consulta el nombre del medicamento, su familia, precio y descripción.**
+    
+### Consulta de Enfermedades
+
+  - **El profesional selecciona enfermedades y consulta el nombre de las enfermedades y su familia.**
