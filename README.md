@@ -123,10 +123,10 @@ Para la configuración de la BBDD es muy importante el archivo `hibernate.cfg.xm
 
 La más importante ya que tiene el catalog que es el nombre de la base de datos y el source que en este caso accede al servidor local de SQL Express. Para ello, recomiendo instalar SQL Express y SQL Server Management Studio y ejecutar los scripts en SQL Server Management Studio.
 
-### Scripts de la Base de Datos
+## Scripts de la Base de Datos
 He utilizado SQL Server Management Studio para la base de datos, de la cual he extraído los scripts para crear la base de datos con todas sus tablas y relaciones. Estos scripts están adjuntos en la carpeta SCRIPTS SQL. Constan de 11 scripts con títulos descriptivos de lo que hace cada uno y deben ser ejecutados en orden de 1 a 11. Además, hay un script.sql que contiene todo el código de los 11 scripts almacenado en uno solo. Puedes decidir ejecutar los 11 uno por uno o ejecutar directamente el script.sql que contiene todo.
 
-### Conclusión
+## Conclusión
 La combinación de Angular, C#, NHibernate y ML.NET ofrece una plataforma robusta, escalable y fácil de mantener para el desarrollo de aplicaciones de salud médica. Este stack tecnológico no solo garantiza una experiencia de usuario rica y fluida, sino que también proporciona capacidades avanzadas de análisis y predicción, fundamentales para mejorar la atención médica.
 
 ### Flujo para Pacientes
